@@ -1,0 +1,212 @@
+import  { useState, useEffect } from 'react';
+import {  Flame, ArrowUp } from 'lucide-react';
+import Header from './components/header';
+import Footer from './components/footer';
+
+function App() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  const indicators = [
+    { name: 'UTM', value: '$62.345' },
+    { name: 'UF', value: '$35.983,45' },
+    { name: 'Dólar', value: '$987,56' },
+    { name: 'Euro', value: '$1.076,89' },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+
+  {/* Función para el boton de hacia arriba */}
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+    <Header />
+
+      {/* Economic Indicators Ticker */}
+      <div className="bg-orange-500 text-white overflow-hidden whitespace-nowrap">
+        <div className="animate-ticker inline-flex space-x-8 py-2">
+          {[...indicators, ...indicators].map((indicator, index) => (
+            <div key={index} className="inline-flex items-center space-x-2">
+              <span className="font-semibold">{indicator.name}:</span>
+              <span>{indicator.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+                {/* Top Ad Banner */}
+                <div className="bg-gray-400 p-2">
+                  <div className="container mx-auto">
+                    <div className="h-16 bg-gray-200 rounded flex items-center justify-center">
+                      <span className="text-gray-500">Espacio Publicitario 728x90</span>
+                    </div>
+                  </div>
+                </div>
+
+      <main className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-12 gap-6">
+          {/* Main Content Area */}
+          <div className="col-span-12 lg:col-span-8">
+            {/* HuevoHost Ad Banner */}
+            <div className="mb-6 bg-blue-900 rounded-lg p-6 text-white">
+              <div className="flex flex-col md:flex-row items-center justify-between">
+                <div className="flex flex-col md:flex-row items-center md:space-x-4 text-center md:text-blue-900 mb-4 md:mb-0">
+                  <img src="/HuevoHost.png" alt="HuevoHost" className="w-18  mb-4  md:mb-0 md:w-[500px] lg:w-[500px] " />
+                  <div>
+                    <p className="text-white/90 mt-1">El mejor hosting para tu sitio web</p>
+                  </div>
+                </div>
+                <button className="bg-white text-orange-500 px-4 py-3 rounded-lg font-semibold hover:bg-gray-200 transition w-full md:w-auto">
+                  Visitar Ahora
+                </button>
+              </div>
+            </div>
+
+            {/* Breaking News */}
+            <section className="mb-8">
+              <div className="flex items-center space-x-2 mb-6">
+                <Flame className="text-red-500 w-6 h-6" />
+                <h2 className="text-2xl font-bold text-gray-800">Últimas Noticias</h2>
+              </div>
+              
+              <div className="space-y-6">
+                {[
+                  {
+                    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800",
+                    title: "Importante acuerdo económico entre Chile y Asia",
+                    description: "Nuevo tratado comercial fortalece lazos económicos con países asiáticos..."
+                  },
+                  {
+                    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800",
+                    title: "Avances en energía renovable en el norte del país",
+                    description: "Inauguración de nuevo parque solar marca hito en energías limpias..."
+                  },
+                  {
+                    image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&w=800",
+                    title: "Desarrollo tecnológico en Santiago",
+                    description: "Nueva incubadora de startups abre sus puertas en el centro de la capital..."
+                  }
+                ].map((news, index) => (
+                  <article key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img 
+                      src={news.image}
+                      alt={news.title}
+                      className="w-full h-48 md:h-64 object-cover"
+                    />
+                    <div className="p-4">
+                      <span className="text-xs font-semibold text-blue-900 uppercase">Nacional</span>
+                      <h3 className="text-xl font-semibold mt-2">{news.title}</h3>
+                      <p className="text-gray-600 mt-2">{news.description}</p>
+                      <div className="mt-4 flex items-center justify-between">
+                        <span className="text-sm text-gray-500">Hace 2 horas</span>
+                        <a href="#" className="text-blue-900 hover:text-blue-700 font-semibold">Leer más →</a>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            {/* Inline Ad */}
+            <div className="mb-8">
+              <div className="h-24 bg-gray-200 rounded flex items-center justify-center">
+                <span className="text-gray-500">Espacio Publicitario 728x90</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <aside className="col-span-12 lg:col-span-4 space-y-6">
+            {/* Sidebar Ad */}
+            <div className="bg-gray-200 p-4 rounded-lg">
+              <div className="h-64 flex items-center justify-center">
+                <span className="text-gray-500">Espacio Publicitario 300x600</span>
+              </div>
+            </div>
+
+            {/* Latest News Widget */}
+            <div className="bg-white rounded-lg shadow-md p-4">
+              <h3 className="text-lg font-bold text-gray-800 mb-4">Lo más leído</h3>
+              <div className="space-y-6">
+                {[
+                  {
+                    title: "Histórica medalla de oro para Chile",
+                    summary: "Deportista nacional logra hazaña histórica en competencia internacional de atletismo.",
+                    reads: "5.2k"
+                  },
+                  {
+                    title: "Descubren nueva especie en el sur",
+                    summary: "Científicos chilenos identifican nueva especie de flora endémica en la Patagonia.",
+                    reads: "4.8k"
+                  },
+                  {
+                    title: "Innovación en educación digital",
+                    summary: "Nuevo programa de educación online beneficiará a estudiantes de zonas remotas.",
+                    reads: "4.1k"
+                  },
+                  {
+                    title: "Récord en exportaciones de vino",
+                    summary: "Vinos chilenos alcanzan cifras históricas en mercados internacionales.",
+                    reads: "3.9k"
+                  },
+                  {
+                    title: "Avance en energías renovables",
+                    summary: "Chile lidera ranking latinoamericano en implementación de energía solar.",
+                    reads: "3.5k"
+                  }
+                ].map((item, index) => (
+                  <div key={index} className="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+                    <div className="flex items-start space-x-3">
+                      <span className="text-2xl font-bold text-blue-900">{index + 1}</span>
+                      <div>
+                        <h4 className="font-semibold text-sm">{item.title}</h4>
+                        <p className="text-sm text-gray-600 mt-1">{item.summary}</p>
+                        <span className="text-xs text-gray-500 mt-2 block">{item.reads} lecturas</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Sticky Ad */}
+            <div className="sticky top-4">
+              <div className="bg-gray-200 p-4 rounded-lg">
+                <div className="h-64 flex items-center justify-center">
+                  <span className="text-gray-500">Espacio Publicitario 300x250</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+   <Footer/>
+
+      {/* Scroll to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className={`${
+          showScrollTop ? 'opacity-100 visible' : 'opacity-0 invisible'
+        } fixed bottom-8 right-8 bg-blue-900 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 z-50`}
+        aria-label="Volver al inicio"
+      >
+        <ArrowUp className="w-6 h-6" />
+      </button>
+    </div>
+  );
+}
+
+export default App;
