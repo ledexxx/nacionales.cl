@@ -76,49 +76,84 @@ function App() {
 
             {/* Breaking News */}
             <section className="mb-8">
-              <div className="flex items-center space-x-2 mb-6">
-                <Flame className="text-red-500 w-6 h-6" />
-                <h2 className="text-2xl font-bold text-gray-800">Últimas Noticias</h2>
+  <div className="flex items-center space-x-2 mb-6">
+    <Flame className="text-red-500 w-6 h-6" />
+    <h2 className="text-2xl font-bold text-gray-800">Últimas Noticias</h2>
+  </div>
+  
+        <div className="space-y-6">
+          {[
+  {
+    image: "https://www.df.cl/noticias/site/artic/20230420/imag/foto_0000000320230420205411/Litio--_1.jpg",
+    title: "Chile anuncia nueva estrategia estatal para la industria del litio",
+    description: "Gobierno presenta plan para crear empresa nacional del litio y modelo de participación público-privada...",
+    link: "https://www.latercera.com/negocios/noticia/gobierno-anuncia-nueva-estrategia-estatal-para-la-industria-del-litio/X4BZ5Y6ZRND3XJZJYF7DZQK3HU/"
+  },
+  {
+    image: "https://www.ceosim.cl/wp-content/uploads/2024/08/1.China-y-Chile-en-Alianza-Comercial.jpg",
+    title: "Chile y China acuerdan modernizar tratado de libre comercio",
+    description: "Ambos países iniciarán negociaciones para actualizar el acuerdo comercial vigente desde 2006...",
+    link: "https://www.df.cl/economia-y-politica/mercados/chile-y-china-acuerdan-modernizar-tratado-de-libre-comercio"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1610741083757-1ae88e1a17f7?auto=format&fit=crop&q=80&w=1200&h=675",
+    title: "Informe ONU: Chile entre los países más vulnerables al cambio climático",
+    description: "Nuevo reporte internacional destaca riesgos en recursos hídricos y zonas costeras...",
+    link: "https://www.emol.com/noticias/Nacional/2023/10/05/1083857/chile-cambio-climatico-onu.html"
+  },
+  {
+    image: "https://www.ex-ante.cl/wp-content/uploads/2023/10/A_UNO_1508590-e1696894885702.jpg",
+    title: "Conflicto en Medio Oriente: Chile condena ataques a civiles",
+    description: "Cancillería emite declaración oficial sobre escalada de violencia entre Israel y Palestina...",
+    link: "https://www.cooperativa.cl/noticias/pais/relaciones-exteriores/chile-condena-ataques-contra-civiles-en-el-conflicto-entre-israel/2023-10-07/193032.html"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&q=80&w=1200&h=675",
+    title: "Chile participa en cumbre de los BRICS como país invitado",
+    description: "Delegación nacional asistió a reunión de bloque emergente en Sudáfrica...",
+    link: "https://www.latercera.com/la-tercera-pm/noticia/chile-participa-como-invitado-en-la-cumbre-de-los-brics-en-sudafrica/2B4Y4Y4Y4Y4Y4Y4Y4Y4Y4Y4Y/"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1200&h=675",
+    title: "Nuevo récord: Energías renovables superan el 60% de la matriz eléctrica",
+    description: "Reporte mensual del Coordinador Eléctrico Nacional marca hito histórico...",
+    link: "https://www.df.cl/empresas/energia/energias-renovables-superan-60-de-participacion-en-matriz-electrica"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=1200&h=675",
+    title: "Chile anuncia nuevo proyecto de inteligencia artificial en salud pública",
+    description: "Sistema de IA ayudará a predecir demanda en hospitales y optimizar recursos...",
+    link: "https://www.latercera.com/la-tercera-pm/noticia/chile-anuncia-nuevo-proyecto-de-inteligencia-artificial-en-salud-publica/2B4Y4Y4Y4Y4Y4Y4Y4Y4Y4Y4Y/"
+  }
+].map((news, index) => (
+            <article key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+              <img 
+                src={news.image}
+                alt={news.title}
+                className="w-full h-48 md:h-64 object-cover"
+              />
+              <div className="p-4">
+                <span className="text-xs font-semibold text-blue-900 uppercase">
+                  {index < 3 ? 'Nacional' : 'Internacional'}
+                </span>
+                <h3 className="text-xl font-semibold mt-2">{news.title}</h3>
+                <p className="text-gray-600 mt-2">{news.description}</p>
+                <div className="mt-4 flex items-center justify-between">
+                  <span className="text-sm text-gray-500">Octubre 2023</span>
+                  <a 
+                    href={news.link} 
+                    className="text-blue-900 hover:text-blue-700 font-semibold"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    Leer más →
+                  </a>
+                </div>
               </div>
-              
-              <div className="space-y-6">
-                {[
-                  {
-                    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800",
-                    title: "Importante acuerdo económico entre Chile y Asia",
-                    description: "Nuevo tratado comercial fortalece lazos económicos con países asiáticos..."
-                  },
-                  {
-                    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800",
-                    title: "Avances en energía renovable en el norte del país",
-                    description: "Inauguración de nuevo parque solar marca hito en energías limpias..."
-                  },
-                  {
-                    image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&w=800",
-                    title: "Desarrollo tecnológico en Santiago",
-                    description: "Nueva incubadora de startups abre sus puertas en el centro de la capital..."
-                  }
-                ].map((news, index) => (
-                  <article key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img 
-                      src={news.image}
-                      alt={news.title}
-                      className="w-full h-48 md:h-64 object-cover"
-                    />
-                    <div className="p-4">
-                      <span className="text-xs font-semibold text-blue-900 uppercase">Nacional</span>
-                      <h3 className="text-xl font-semibold mt-2">{news.title}</h3>
-                      <p className="text-gray-600 mt-2">{news.description}</p>
-                      <div className="mt-4 flex items-center justify-between">
-                        <span className="text-sm text-gray-500">Hace 2 horas</span>
-                        <a href="#" className="text-blue-900 hover:text-blue-700 font-semibold">Leer más →</a>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </section>
-
+            </article>
+          ))}
+        </div>
+      </section>
             {/* Inline Ad */}
             <div className="mb-8">
               <div className="h-24 bg-gray-200 rounded flex items-center justify-center">
