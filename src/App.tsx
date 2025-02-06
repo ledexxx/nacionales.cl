@@ -60,7 +60,7 @@ function App() {
           {/* Main Content Area */}
           <div className="col-span-12 lg:col-span-8">
             {/* HuevoHost Ad Banner */}
-            <div className="mb-6 bg-blue-900 rounded-lg p-6 text-white">
+            <div className="mb-6 bg-[#0c3a54] rounded-lg p-6 text-white">
               <div className="flex flex-col md:flex-row items-center justify-between">
                 <div className="flex flex-col md:flex-row items-center md:space-x-4 text-center md:text-blue-900 mb-4 md:mb-0">
                   <img src="/HuevoHost.png" alt="HuevoHost" className="w-18  mb-4  md:mb-0 md:w-[500px] lg:w-[500px] " />
