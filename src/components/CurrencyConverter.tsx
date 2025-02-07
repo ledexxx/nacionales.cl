@@ -1,11 +1,7 @@
 import Header from './header';
 import Footer from './footer';
 
-
-// Componente principal CurrencyConverter
 const CurrencyConverter = () => {
-
-  
   const indicators = [
     { name: 'UTM', value: '$62.345' },
     { name: 'UF', value: '$35.983,45' },
@@ -13,11 +9,11 @@ const CurrencyConverter = () => {
     { name: 'Euro', value: '$1.076,89' },
   ];
 
-
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50">
       <Header />
-      {/* Economic Indicators Ticker */}
+      
+      {/* Ticker de Indicadores Económicos */}
       <div className="bg-orange-500 text-white overflow-hidden whitespace-nowrap">
         <div className="animate-ticker inline-flex space-x-8 py-2">
           {[...indicators, ...indicators].map((indicator, index) => (
@@ -28,83 +24,153 @@ const CurrencyConverter = () => {
           ))}
         </div>
       </div>
-                {/* Top Ad Banner */}
-                <div className="bg-gray-400 p-2">
-                  <div className="container mx-auto">
-                    <div className="h-16 bg-gray-200 rounded flex items-center justify-center">
-                      <span className="text-gray-500">Espacio Publicitario 728x90</span>
-                    </div>
-                  </div>
-                </div>
 
-                
-      {/* Contenido principal */}
-      <main className="container mx-auto px-4 mt-8">
-        <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            {/* Sección del conversor de monedas */}
-            <div className="bg-white rounded-xl shadow-sm p-6">
-              <h1 className="text-2xl font-bold text-gray-800">Conversor Dólar a Peso Chileno</h1>
-              <p className="text-gray-600 mt-2">1 USD = CLP $ 987,71</p>
+      {/* Banner Publicitario Superior */}
+      <div className="bg-gray-400 p-2">
+        <div className="container mx-auto">
+          <div className="h-16 bg-gray-200 rounded flex items-center justify-center">
+            <span className="text-gray-500">Espacio Publicitario 728x90</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Contenido Principal */}
+      <main className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-12 gap-6">
+          {/* Barra Lateral Izquierda - Oculto en móviles */}
+          <aside className="hidden lg:block lg:col-span-2">
+            <div className="sticky top-4">
+              <div className="bg-gray-200 rounded-lg p-4">
+                <div className="h-[600px] flex items-center justify-center text-center">
+                  <span className="text-gray-500">Espacio Publicitario<br />300x600</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          {/* Sección Principal */}
+          <div className="col-span-12 lg:col-span-8">
+            {/* Tarjeta del Conversor */}
+            <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+              <h1 className="text-2xl font-bold text-gray-800 mb-4">Conversor de Divisas a CLP</h1>
+              <p className="text-lg text-blue-600 mb-6">1 USD = CLP $987,71 (Actualizado hoy)</p>
               
-              {/* Formulario de conversión */}
-              <div className="mt-6 space-y-4">
+              {/* Formulario de Conversión */}
+              <div className="space-y-6">
                 <div className="grid grid-cols-12 gap-4 items-center">
-                  <select className="col-span-5 p-3 border rounded-lg">
-                    <option>AED - Dirham de Emiratos</option>
-                    <option>COP - Pesos Colombianos</option>
-                    <option>VEF - Bolivar Fuerte Venezolano</option>
+                  <select className="col-span-12 md:col-span-5 p-3 border rounded-lg bg-white">
+                    <option>USD - Dólar Estadounidense</option>
+                    <option>EUR - Euro</option>
+                    <option>GBP - Libra Esterlina</option>
+                    <option>ARS - Peso Argentino</option>
                   </select>
                   
-                  <button className="col-span-2 text-blue-600 mx-auto">
-                    <i className="fas fa-exchange-alt fa-rotate-90"></i>
-                  </button>
+                  <div className="col-span-12 md:col-span-2 flex justify-center">
+                    <button className="p-2 text-blue-600 transform rotate-90 md:rotate-0">
+                      <i className="fas fa-exchange-alt text-2xl"></i>
+                    </button>
+                  </div>
                   
-                  <select className="col-span-5 p-3 border rounded-lg">
+                  <select className="col-span-12 md:col-span-5 p-3 border rounded-lg bg-gray-50" disabled>
                     <option>CLP - Peso Chileno</option>
                   </select>
                 </div>
                 
-                <input type="number" value="268.00000000" 
-                       className="w-full p-3 border rounded-lg text-lg font-medium" />
+                <div className="relative">
+                  <input 
+                    type="number" 
+                    value="1000"
+                    className="w-full p-3 border rounded-lg text-2xl font-bold pr-24" 
+                  />
+                  <span className="absolute right-3 top-4 text-gray-500 text-lg">USD</span>
+                </div>
                 
-                <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
-                  Convertir
+                <button className="w-full bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700 transition text-lg font-semibold">
+                  Convertir Ahora
                 </button>
                 
-                <div className="text-2xl font-bold text-blue-600 mt-4">CLP $ 368,00</div>
+                <div className="bg-blue-50 p-4 rounded-lg">
+                  <p className="text-3xl font-bold text-blue-600 text-center">CLP $ 987.710</p>
+                  <p className="text-gray-600 text-center mt-2">Tipo de cambio promedio del mercado</p>
+                </div>
               </div>
 
-              {/* Tabla de conversiones */}
-              <div className="mt-8 overflow-x-auto">
-                <table className="w-full">
-                  <tbody>
-                    <tr className="border-b">
-                      <td className="py-3 font-medium">AED</td>
-                      <td className="py-3 text-gray-600">CLP $ 368,00</td>
-                      <td className="py-3 font-medium">PVG</td>
-                      <td className="py-3 text-gray-600">CLP $ 0,00</td>
-                    </tr>
-                    {/* Más filas de la tabla */}
-                  </tbody>
-                </table>
+              {/* Tabla de Conversiones Rápidas */}
+              <div className="mt-8">
+                <h2 className="text-xl font-bold text-gray-800 mb-4">Conversiones comunes</h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {[1, 5, 10, 50, 100, 500, 1000, 5000].map((amount) => (
+                    <div key={amount} className="bg-gray-50 p-3 rounded-lg text-center">
+                      <p className="font-semibold">{amount} USD</p>
+                      <p className="text-blue-600">= ${amount * 987}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Sección de impuestos (pendiente de contenido) */}
-            <div className="mt-6 bg-white rounded-xl shadow-sm p-6">
-              {/* Contenido de impuestos */}
+            {/* Sección Informativa */}
+            <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Información sobre divisas</h2>
+              
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">¿Cómo funcionan los tipos de cambio?</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Los tipos de cambio representan el valor de una moneda en relación a otra. En Chile, el valor oficial del dólar es establecido por el Banco Central según transacciones del mercado financiero. Factores como inflación, estabilidad política y comercio internacional afectan su valor diariamente.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">¿Por qué varían las tasas?</h3>
+                  <ul className="list-disc list-inside space-y-2 text-gray-600">
+                    <li>Fluctuaciones en los mercados internacionales</li>
+                    <li>Decisiones de política monetaria</li>
+                    <li>Demanda y oferta de divisas</li>
+                    <li>Situación económica del país</li>
+                    <li>Eventos geopolíticos relevantes</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">Consejos para conversiones</h3>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-blue-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-blue-600 mb-2">Mejor momento</h4>
+                      <p>Las mañanas entre 9:00-11:00 AM suelen tener menor volatilidad</p>
+                    </div>
+                    <div className="bg-blue-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-blue-600 mb-2">Comisiones</h4>
+                      <p>Compara entre diferentes casas de cambio y bancos</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Banner Publicitario Inferior */}
+            <div className="mb-8">
+              <div className="h-24 bg-gray-200 rounded-lg flex items-center justify-center">
+                <span className="text-gray-500">Espacio Publicitario 728x90</span>
+              </div>
             </div>
           </div>
+
+          {/* Barra Lateral Derecha - Oculto en móviles */}
+          <aside className="hidden lg:block lg:col-span-2">
+            <div className="sticky top-4">
+              <div className="bg-gray-200 rounded-lg p-4">
+                <div className="h-[600px] flex items-center justify-center text-center">
+                  <span className="text-gray-500">Espacio Publicitario<br />300x600</span>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </main>
-      <Footer/>
-      
+
+      <Footer />
     </div>
-
-    
-
-    
   );
 };
 
