@@ -49,8 +49,8 @@ const UFCalculator: React.FC = () => {
     <>
       <Header />
 
-         {/* Economic Indicators Ticker */}
-         <div className="bg-orange-500 text-white overflow-hidden whitespace-nowrap">
+      {/* Ticker de Indicadores Económicos */}
+      <div className="bg-orange-500 text-white overflow-hidden whitespace-nowrap">
         <div className="animate-ticker inline-flex space-x-8 py-2">
           {[...indicators, ...indicators].map((indicator, index) => (
             <div key={index} className="inline-flex items-center space-x-2">
@@ -63,7 +63,7 @@ const UFCalculator: React.FC = () => {
 
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-12 gap-6">
-          {/* Left Sidebar Ad - Hidden on mobile */}
+          {/* Barra Lateral Izquierda - Oculto en móviles */}
           <aside className="hidden lg:block lg:col-span-2">
             <div className="sticky top-4">
               <div className="bg-gray-200 rounded-lg p-4">
@@ -74,9 +74,9 @@ const UFCalculator: React.FC = () => {
             </div>
           </aside>
 
-          {/* Main Calculator Content */}
+          {/* Contenido Principal de la Calculadora */}
           <main className="col-span-12 lg:col-span-8">
-            {/* Top Banner Ad */}
+            {/* Banner Superior de Publicidad */}
             <div className="mb-8">
               <div className="bg-gray-200 rounded-lg p-4">
                 <div className="h-24 flex items-center justify-center">
@@ -85,7 +85,7 @@ const UFCalculator: React.FC = () => {
               </div>
             </div>
 
-            {/* Calculator Card */}
+            {/* Tarjeta de la Calculadora */}
             <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
               <div className="flex items-center space-x-3 mb-8">
                 <Calculator className="w-8 h-8 text-blue-900" />
@@ -153,7 +153,7 @@ const UFCalculator: React.FC = () => {
               </div>
             </div>
 
-            {/* Information Section */}
+            {/* Sección de Información */}
             <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">Información sobre la UF</h2>
 
@@ -189,7 +189,7 @@ const UFCalculator: React.FC = () => {
               </div>
             </div>
 
-            {/* Bottom Banner Ad */}
+            {/* Banner Inferior de Publicidad */}
             <div className="mb-8">
               <div className="bg-gray-200 rounded-lg p-4">
                 <div className="h-24 flex items-center justify-center">
@@ -199,7 +199,7 @@ const UFCalculator: React.FC = () => {
             </div>
           </main>
 
-          {/* Right Sidebar Ad - Hidden on mobile */}
+          {/* Barra Lateral Derecha - Oculto en móviles */}
           <aside className="hidden lg:block lg:col-span-2">
             <div className="sticky top-4">
               <div className="bg-gray-200 rounded-lg p-4">
@@ -212,7 +212,7 @@ const UFCalculator: React.FC = () => {
         </div>
       </div>
 
-        <Footer />
+      <Footer />
     </>
   );
 };
