@@ -9,8 +9,8 @@ const footer = () => {
         <div className="container mx-auto px-4 py-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-bold text-lg mb-4">Nacionales.cl</h3>
-              <p className="text-sm text-gray-400">Tu fuente confiable de noticias en Chile</p>
+              <img className="mb-4 h-8" src="/nacionales-azul.png" alt="logo nacionales" />
+              <p className="text-sm text-gray-400">Los titulares son propiedad de sus autores correspondientes. El contenido en Nacionales.cl es generado automáticamente.</p>
             </div>
             <div>
               <h4 className="font-bold mb-4">Herramientas</h4>
